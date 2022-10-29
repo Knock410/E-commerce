@@ -13,7 +13,7 @@ Tag.get('/', (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbTagData) => res.json(dbTagData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbTagData) => res.json(dbTagData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -46,7 +46,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
  Tag.create(req.body)
-    .then(dbPostData => res.json(dbPostData))
+    .then(dbTagData=> res.json(dbTagData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -63,12 +63,12 @@ router.put('/:id', (req, res) => {
       }
     }
   )
-    .then(dbPostData => {
-      if (!dbPostData) {
+    .then(dbTagData => {
+      if (!dbTagData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbTagData);
     })
     .catch(err => {
       console.log(err);
@@ -83,12 +83,12 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-    .then(dbPostData => {
-      if (!dbPostData) {
+    .then(dbTagData => {
+      if (!dbTagData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
-      res.json(dbPostData);
+      res.json(dbTagData);
     })
     .catch(err => {
       console.log(err);
