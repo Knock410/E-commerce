@@ -14,10 +14,35 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+ Tag.create(req.body)
+    .then(dbPostData => res.json(dbPostData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
   // create a new tag
 });
 
 router.put('/:id', (req, res) => {
+  Tag.update(
+   req.body,
+    {
+      where: {
+        id: req.params.id
+      }
+    }
+  )
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+      res.json(dbPostData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
   // update a tag's name by its `id` value
 });
 
