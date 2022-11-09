@@ -8,7 +8,7 @@ https://drive.google.com/file/d/1hG0Zojjga0XyphA5-tRXICziIjkcrOTK/view
 - run mysql2 -u root -p in the terminal 
 - sourec db/schema.sql
 - npm run seed 
-- npm start to run the serve at http://localhost:3001
+- npm start to run the server at http://localhost:3001
 -open insomia 
 - use http://localhost:3001/api/  (products,tags,categories)
 
