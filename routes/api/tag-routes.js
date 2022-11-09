@@ -53,7 +53,7 @@ router.post('/', (req, res) => {
     });
   // create a new tag
 });
-
+//update tag 
 router.put('/:id', (req, res) => {
   Tag.update(
    req.body,
@@ -65,7 +65,7 @@ router.put('/:id', (req, res) => {
   )
     .then(dbTagData => {
       if (!dbTagData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: 'No tag found with this id' });
         return;
       }
       res.json(dbTagData);
